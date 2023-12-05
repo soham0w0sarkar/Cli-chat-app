@@ -36,14 +36,16 @@ This is a console-based chat application built using Node.js, Express, and Socke
 
 ### Usage
 
-    server side:
+1.  server side:
+
 
     ```bash
     nodemon server.js
     ```
     The server will be running on http://localhost:9090
 
-    Client side:
+2.  Client side:
+
 
     open multiple terminals and run the following command in each terminal
 
