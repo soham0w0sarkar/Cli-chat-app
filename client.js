@@ -6,15 +6,12 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const socket = io("http://localhost:9090/");
+const socket = io("https://cli-chat-app.onrender.com");
 
 socket.on("connect", () => {
-  console.log("User Connected!!! ");
+  console.log("Connected to Server!!!");
 
   rl.question("Enter your Username: ", (username) => {
-    rl.setPrompt("");
-    rl.prompt();
-
     rl.on("line", (msg) => {
       socket.emit("chat-msg", `${username}: ${msg}`);
     });

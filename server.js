@@ -8,11 +8,8 @@ const server = createServer(app);
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-  console.log("Connection Started............!!");
-
+  console.log("User Connected!!!");
   socket.on("chat-msg", (msg) => {
-    console.log("Message: " + msg);
-
     socket.broadcast.emit("chat-msg", msg);
 
     socket.on("disconnect", () => {
@@ -21,6 +18,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(9090, () => {
+server.listen(5050, () => {
   console.log("Server running on 5050.........");
 });
