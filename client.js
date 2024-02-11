@@ -4,15 +4,14 @@ import { io } from "socket.io-client";
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
+  terminal: false,
 });
 
-const socket = io("https://cli-chat-app.onrender.com");
+const socket = io("https://chat-app-socketio-inpt.onrender.com");
 
-socket.on("connect", () => {
-  console.log("Connected to Server!!!");
-
-  rl.question("Enter your Username: ", (username) => {
-    process.stdout.write("Me: ");
+rl.question("Enter your Username: ", (username) => {
+  socket.on("connect", () => {
+    console.log("Connected to Server!!!");
 
     rl.on("line", (msg) => {
       process.stdout.clearLine();
